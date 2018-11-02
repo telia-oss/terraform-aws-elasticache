@@ -41,6 +41,12 @@ variable "subnet_ids" {
 
 variable "source_security_group_id" {
   description = "The security group id to allow access from."
+  default     = ""
+}
+
+variable "source_cidr_blocks" {
+  description = "The security group id to allow access from."
+  default     = []
 }
 
 variable "tags" {
