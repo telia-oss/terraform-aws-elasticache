@@ -45,7 +45,7 @@ variable "source_security_group_id" {
 }
 
 variable "source_cidr_blocks" {
-  description = "The security group id to allow access from."
+  description = "A list of CIDR blocks to allow access from."
   default     = []
 }
 
