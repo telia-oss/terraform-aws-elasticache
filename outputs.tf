@@ -12,3 +12,8 @@ output "configuration_endpoint" {
 output "cluster_address" {
   value = "${aws_elasticache_cluster.main.cluster_address}"
 }
+
+output "security_group_id" {
+  description = "The ID of the security group."
+  value       = "${element(concat(aws_security_group.main.*.id, list("")), 0)}"
+}

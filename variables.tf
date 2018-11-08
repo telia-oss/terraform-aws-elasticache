@@ -39,16 +39,6 @@ variable "subnet_ids" {
   type        = "list"
 }
 
-variable "source_security_group_id" {
-  description = "The security group id to allow access from."
-  default     = ""
-}
-
-variable "source_cidr_blocks" {
-  description = "A list of CIDR blocks to allow access from."
-  default     = []
-}
-
 variable "tags" {
   description = "A map of tags (key-value pairs) passed to resources."
   type        = "map"
