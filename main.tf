@@ -2,7 +2,7 @@
 # https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html
 
 resource "aws_elasticache_subnet_group" "main" {
-  name       = "main"
+  name       = "${var.subnet_group_name}"
   subnet_ids = ["${var.subnet_ids}"]
 }
 
