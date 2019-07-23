@@ -6,6 +6,11 @@ variable "prefix" {
   default     = "main"
 }
 
+variable "subnet_group_name" {
+  description = "Name for the elasticache subnet group "
+  default     = "main"
+}
+
 variable "parameter_group_name" {
   default = "default.memcached1.4"
 }
