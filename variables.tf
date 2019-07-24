@@ -12,7 +12,7 @@ variable "subnet_group_name" {
 }
 
 variable "parameter_group_name" {
-  default = "default.memcached1.4"
+  default = "default.memcached1.5"
 }
 
 variable "engine" {
