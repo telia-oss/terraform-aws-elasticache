@@ -21,14 +21,14 @@ resource "aws_elasticache_cluster" "main" {
 }
 
 resource "aws_security_group" "main" {
-  name        = "${var.prefix}-memcached-sg"
+  name        = "${var.prefix}-sg"
   description = "Terraformed security group."
   vpc_id      = var.vpc_id
 
   tags = merge(
     var.tags,
     {
-      "Name" = "${var.prefix}-memcached-sg"
+      "Name" = "${var.prefix}-sg"
     },
   )
 }
