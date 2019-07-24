@@ -18,6 +18,6 @@ output "cluster_address" {
 
 output "security_group_id" {
   description = "The ID of the security group."
-  value       = element(concat(aws_security_group.main.*.id, [""]), 0)
+  value       = concat(aws_security_group.main[*].id, [""])[0]
 }
 

@@ -3,40 +3,55 @@
 
 variable "prefix" {
   description = "A prefix used for naming resources."
+  type        = string
   default     = "main"
 }
 
 variable "subnet_group_name" {
-  description = "Name for the elasticache subnet group "
+  description = "Name for the elasticache subnet group."
+  type        = string
   default     = "main"
 }
 
 variable "parameter_group_name" {
-  default = "default.memcached1.5"
+  description = "Name of the parameter group to associate with this cache cluster."
+  type        = string
+  default     = "default.memcached1.5"
 }
 
 variable "engine" {
-  default = "memcached"
+  description = "Name of the cache engine to be used for this cache cluster. Valid values for this parameter are memcached or redis."
+  type        = string
+  default     = "memcached"
 }
 
 variable "node_type" {
-  default = "cache.t2.micro"
+  description = "The compute and memory capacity of the nodes."
+  type        = string
+  default     = "cache.t2.micro"
 }
 
 variable "num_cache_nodes" {
-  default = 2
+  description = "The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcache, this value must be between 1 and 20."
+  type        = number
+  default     = 2
 }
 
 variable "az_mode" {
-  default = "cross-az"
+  description = "Weither to run in single-az or cross-az."
+  type        = string
+  default     = "cross-az"
 }
 
 variable "port" {
-  default = 11211
+  description = "The port number on which each of the cache nodes will accept connections."
+  type        = number
+  default     = 11211
 }
 
 variable "vpc_id" {
   description = "ID of the VPC for the subnets."
+  type        = string
 }
 
 variable "subnet_ids" {
