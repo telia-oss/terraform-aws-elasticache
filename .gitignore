@@ -1,9 +1,10 @@
-#  Local .terraform directories
-**/.terraform/*
+# Terraform
+**/.terraform
+**/*.tfstate*
+crash.log
 
-# .tfstate files
-*.tfstate
-*.tfstate.*
+# IntelliJ IDE
+.idea/
 
-# .tfvars files
-*.tfvars
+# Taskfile
+.task/

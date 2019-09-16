@@ -1,6 +1,6 @@
 variable "name_prefix" {
   type    = string
-  default = "default-example"
+  default = "elasticache-complete-example"
 }
 
 variable "region" {

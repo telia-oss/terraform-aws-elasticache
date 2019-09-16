@@ -1,6 +1,6 @@
 variable "name_prefix" {
   type    = string
-  default = "redis-example"
+  default = "elasticache-basic-example"
 }
 
 variable "region" {
