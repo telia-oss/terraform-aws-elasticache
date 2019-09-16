@@ -22,14 +22,14 @@ func TestModule(t *testing.T) {
 		{
 			description: "basic example",
 			directory:   "../examples/basic",
-			name:        fmt.Sprintf("module-basic-test-%s", random.UniqueId()),
+			name:        fmt.Sprintf("elasticache-basic-test-%s", random.UniqueId()),
 			region:      "eu-west-1",
 			expected:    elasticache.Expectations{},
 		},
 		{
 			description: "complete example",
 			directory:   "../examples/complete",
-			name:        fmt.Sprintf("module-complete-test-%s", random.UniqueId()),
+			name:        fmt.Sprintf("elasticache-complete-test-%s", random.UniqueId()),
 			region:      "eu-west-1",
 			expected:    elasticache.Expectations{},
 		},
