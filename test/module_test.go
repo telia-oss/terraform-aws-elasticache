@@ -2,9 +2,10 @@ package module_test
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 
-	module "github.com/telia-oss/terraform-module-template/test"
+	elasticache "github.com/telia-oss/terraform-aws-elasticache/v2/test"
 
 	"github.com/gruntwork-io/terratest/modules/random"
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -16,21 +17,21 @@ func TestModule(t *testing.T) {
 		directory   string
 		name        string
 		region      string
-		expected    module.Expectations
+		expected    elasticache.Expectations
 	}{
 		{
 			description: "basic example",
 			directory:   "../examples/basic",
 			name:        fmt.Sprintf("module-basic-test-%s", random.UniqueId()),
 			region:      "eu-west-1",
-			expected:    module.Expectations{},
+			expected:    elasticache.Expectations{},
 		},
 		{
 			description: "complete example",
 			directory:   "../examples/complete",
 			name:        fmt.Sprintf("module-complete-test-%s", random.UniqueId()),
 			region:      "eu-west-1",
-			expected:    module.Expectations{},
+			expected:    elasticache.Expectations{},
 		},
 	}
 
@@ -43,7 +44,8 @@ func TestModule(t *testing.T) {
 				TerraformDir: tc.directory,
 
 				Vars: map[string]interface{}{
-					"name_prefix": tc.name,
+					// aws_elasticache_cluster requires lowercase characters
+					"name_prefix": strings.ToLower(tc.name),
 					"region":      tc.region,
 				},
 
@@ -55,11 +57,8 @@ func TestModule(t *testing.T) {
 			defer terraform.Destroy(t, options)
 			terraform.InitAndApply(t, options)
 
-			tc.expected.NamePrefix = tc.name
-
-			module.RunTestSuite(t,
+			elasticache.RunTestSuite(t,
 				tc.region,
-				terraform.Output(t, options, "name_prefix"),
 				tc.expected,
 			)
 		})
