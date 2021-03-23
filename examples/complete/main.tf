@@ -1,10 +1,9 @@
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.14"
 }
 
 provider "aws" {
-  version = ">= 2.27"
-  region  = var.region
+  region = var.region
 }
 
 data "aws_vpc" "main" {
@@ -20,7 +19,7 @@ module "elasticache" {
 
   prefix               = var.name_prefix
   subnet_group_name    = var.name_prefix
-  parameter_group_name = "default.redis5.0"
+  parameter_group_name = "default.redis6.x"
   engine               = "redis"
   num_cache_nodes      = 1
   az_mode              = "single-az"
