@@ -16,7 +16,7 @@ variable "subnet_group_name" {
 variable "parameter_group_name" {
   description = "Name of the parameter group to associate with this cache cluster."
   type        = string
-  default     = "default.memcached1.5"
+  default     = "default.memcached1.6"
 }
 
 variable "engine" {
